@@ -34,3 +34,5 @@ args = parser.parse_args()
 displaySplash()
 print(f"\nReading '{str(args.file.name)}'")
 print("Compiling your code...")
+
+# 3. Create token
