@@ -9,9 +9,9 @@ import re
 # 1. Token Expression 
 tokenExpression = [
     # Not token
-    (r'[ \t]+',                                     None),
-    (r'//[^\n]*',                                   None),
-    (r'\n',                                         "NEWLINE"),
+    (r'[ \t]+',   None),
+    (r'//[^\n]*', None),
+    (r'\n',       "NEWLINE"),
     
     # Keyword
     (r'\bif\b',                 "IF"),
