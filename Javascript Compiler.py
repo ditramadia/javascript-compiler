@@ -2,6 +2,7 @@
 
 import src.tokenizer as tokenizer
 import src.grammar.cfg2cnf as cfg2cnf
+import src.parser as parser
 
 # Function -----------------------------------------
 
@@ -25,12 +26,21 @@ def displaySplash():
     print("                                                        ")
 
 # 2. Display Result
-def displayResult():
-    print()
-    print("-----=========  ACCEPTED =========-----")
-    print()
-    print("Compilation successfull")
-    print()
+def displayResult(isAccepted):
+    
+    if isAccepted:
+        print()
+        print("-----=========  ACCEPTED =========-----")
+        print()
+        print("Compilation successfull!")
+        print()
+
+    else:
+        print()
+        print("-----=========  SYNTAX ERROR =========-----")
+        print()
+        print("Maybe you forgot a comma?")
+        print()
 
 # Main Program -------------------------------------
 
@@ -38,10 +48,10 @@ def displayResult():
 print("Enter the name of your code file: ", end="")
 file_name = input()
 
-# while file_name.endswith(".js"):
-    # file_name = file_name[:-3]
+while file_name.endswith(".js"):
+    file_name = file_name[:-3]
 
-file_path = f"test/{file_name}"
+file_path = f"test/{file_name}.js"
 
 # 2. Display splash screen
 displaySplash()
@@ -53,7 +63,8 @@ tokens = tokenizer.createToken(file_path)
 tokens = [token.lower() for token in tokens]
 
 # 4. Validate grammar
-cnf = cfg2cnf.mapGrammar(cfg2cnf.convertGrammar((cfg2cnf.readGrammarFile("src/grammar/cfg.txt"))))
+cnf = cfg2cnf.mapCNF(cfg2cnf.cfg2cnf((cfg2cnf.readCFG("src/grammar/cfg.txt"))))
+isAcc = parser.parse(tokens, cnf)
 
 # 5. Display result
-print("\n== TEMPORARY RESULT =================")
+displayResult(isAcc)

@@ -51,7 +51,23 @@ def addGrammar(grammarRaw):
    
   grammars[grammarRaw[0]].append(grammarRaw[1:])
 
-# 3. Convert CFG to CNF
+# 3. Map CNF
+def mapCNF(cnf):
+
+  map = {}
+
+  for grammar in cnf:
+    map[str(grammar[0])] = []
+  
+  for grammar in cnf:
+    syntax = []
+    for idxGrammar in range(1, len(grammar)):
+      syntax.append(grammar[idxGrammar])
+    map[str(grammar[0])].append(syntax)
+  
+  return map
+
+# 4. Convert CFG to CNF
 def cfg2cnf(grammarsRaw):
 
   global grammars
@@ -101,15 +117,15 @@ def cfg2cnf(grammarsRaw):
 
 # Main Program -------------------------------------
 
-cnf_file = open('cnf.txt', 'w')
-cnfRules = cfg2cnf(readCFG("cfg.txt"))
+# cnf_file = open('cnf.txt', 'w')
+# cnfRules = cfg2cnf(readCFG("cfg.txt"))
 
-for grammar in cnfRules:
-  cnf_file.write(grammar[0])
-  cnf_file.write(" -> ")
-  for var in grammar[1:]:
-    cnf_file.write(var)
-    cnf_file.write(" ")
-  cnf_file.write("\n")
+# for grammar in cnfRules:
+#   cnf_file.write(grammar[0])
+#   cnf_file.write(" -> ")
+#   for var in grammar[1:]:
+#     cnf_file.write(var)
+#     cnf_file.write(" ")
+#   cnf_file.write("\n")
 
-cnf_file.close()
+# cnf_file.close()
