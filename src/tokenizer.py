@@ -15,7 +15,6 @@ tokenExpression = [
     (r'\n',       "NEWLINE"),
     
     # Keyword
-    (r'\bconsole.log\b', "PRINT"),
     (r'\bif\b',          "IF"),
     (r'\belse\b',        "ELSE"),
     (r'\bfor\b',         "FOR"),
@@ -25,11 +24,9 @@ tokenExpression = [
     (r'\bbreak\b',       "BREAK"),
     (r'\bdefault\b',     "DEFAULT"),
     (r'\bcontinue\b',    "CONTINUE"),
-    (r'\bfunction\b',    "FUNCTION"),
+    (r'\bfunction\b',    "FUNC"),
     (r'\breturn\b',      "RETURN"),
-    (r'\bclass\b',       "CLASS"),
-    (r'\bthis\b',       "THIS"),
-    (r'\bdelete\b',       "DELETE"),
+    (r'\bdelete\b',      "DELETE"),
     (r'\bfrom\b',        "FROM"),
     (r'\bimport\b',      "IMPORT"),
     (r'\bas\b',          "AS"),
@@ -123,23 +120,23 @@ def tokenizer(text, tokenExs):
             curLine += 1
             linePos = 1
         
-        isNErr = None
+        isMatch = None
         for tokenEx in tokenExs:
             pattern, label = tokenEx
 
             regEx = re.compile(pattern)
-            isNErr = regEx.match(text, globalPos)
+            isMatch = regEx.match(text, globalPos)
 
-            if isNErr:
+            if isMatch:
                 if label:
                     tokens.append(label)
                 break
         
-        if not isNErr:
+        if not isMatch:
             displayIllegal(text[globalPos], curLine, linePos)
             sys.exit(1)
         else: 
-            globalPos = isNErr.end(0)
+            globalPos = isMatch.end(0)
 
         linePos += 1
     
