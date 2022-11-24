@@ -1,7 +1,6 @@
-# Import modules -----------------------------------
+# Import Modules -----------------------------------
 
-import sys
-import argparse
+import src.tokenizer as tokenizer
 
 # Function -----------------------------------------
 
@@ -23,14 +22,30 @@ def displaySplash():
     print("                              |_|                      ")
     print("")
 
+# 2. Display Result
+def displayResult():
+    print()
+    print("-----=========  ACCEPTED =========-----")
+    print()
+    print("Compilation successfull")
+    print()
+
 # Main Program -------------------------------------
 
 # 1. Argparse
-parser = argparse.ArgumentParser()
-parser.add_argument('file', type = argparse.FileType('r'))
-args = parser.parse_args()
+print("Enter the name of your code file: ", end="")
+file_name = input()
+file_path = f"test/{file_name}"
 
 # 2. Display splash screen
 displaySplash()
-print(f"\nReading '{str(args.file.name)}'")
+print(f"\nReading '{str(file_path)}'")
 print("Compiling your code...")
+
+# 3. Validate character and Create token
+tokens = tokenizer.createToken(file_path)
+
+# 4. Validate grammar
+
+# 5. Display result
+displayResult()
