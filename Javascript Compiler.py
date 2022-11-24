@@ -1,6 +1,7 @@
 # Import Modules -----------------------------------
 
 import src.tokenizer as tokenizer
+import src.grammar.cfg2cnf as cfg2cnf
 
 # Function -----------------------------------------
 
@@ -37,10 +38,10 @@ def displayResult():
 print("Enter the name of your code file: ", end="")
 file_name = input()
 
-while file_name.endswith(".js"):
-    file_name = file_name[:-3]
+# while file_name.endswith(".js"):
+    # file_name = file_name[:-3]
 
-file_path = f"test/{file_name}.js"
+file_path = f"test/{file_name}"
 
 # 2. Display splash screen
 displaySplash()
@@ -49,8 +50,10 @@ print("Compiling your code...")
 
 # 3. Validate character and Create token
 tokens = tokenizer.createToken(file_path)
+tokens = [token.lower() for token in tokens]
 
 # 4. Validate grammar
+cnf = cfg2cnf.mapGrammar(cfg2cnf.convertGrammar((cfg2cnf.readGrammarFile("src/grammar/cfg.txt"))))
 
 # 5. Display result
-displayResult()
+print("\n== TEMPORARY RESULT =================")

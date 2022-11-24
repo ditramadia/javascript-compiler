@@ -1,3 +1,5 @@
+-- BASE -----------------------------------
+
 NEWLINE -> newline
 IF -> if
 ELSE -> else
@@ -61,6 +63,9 @@ NULL -> null
 UNDEFINED -> undefined
 TYPE -> type
 VAR -> var
+
+-- S --------------------------------------
+
 S -> IMPORT_STMT
 S -> ENTER IMPORT_STMT
 S -> IMPORT_STMT ENTER
@@ -69,11 +74,20 @@ S -> IMPORT_STMT S ENTER
 S -> IMPORT_STMT ENTER S
 ENTER -> NEWLINE
 ENTER -> NEWLINE ENTER
+
+-- IMPORT ---------------------------------
+
 IMPORT_STMT -> IMPORT STRING SEMICOLON
-IMPORT_STMT -> IMPORT VAR FROM STRING SEMICOLON
+IMPORT_STMT -> IMPORT VAR FROM STRING SEMICOLON 
 IMPORT_STMT -> IMPORT MUL AS VAR FROM STRING SEMICOLON
 IMPORT_STMT -> IMPORT OBJECT FROM STRING SEMICOLON
+
+-- OBJECT ---------------------------------
+
 OBJECT -> LCB VAR RCB
 OBJECT -> LCB VAR_GROUP RCB
+
+-- VAR ------------------------------------
+
 VAR_GROUP -> VAR COMMA VAR
 VAR_GROUP -> VAR COMMA VAR_GROUP

@@ -15,7 +15,6 @@ tokenExpression = [
     (r'\n',       "NEWLINE"),
     
     # Keyword
-    (r'\bconsole.log\b', "PRINT"),
     (r'\bif\b',          "IF"),
     (r'\belse\b',        "ELSE"),
     (r'\bfor\b',         "FOR"),
@@ -25,11 +24,9 @@ tokenExpression = [
     (r'\bbreak\b',       "BREAK"),
     (r'\bdefault\b',     "DEFAULT"),
     (r'\bcontinue\b',    "CONTINUE"),
-    (r'\bfunction\b',    "FUNCTION"),
+    (r'\bfunction\b',    "FUNC"),
     (r'\breturn\b',      "RETURN"),
-    (r'\bclass\b',       "CLASS"),
-    (r'\bthis\b',       "THIS"),
-    (r'\bdelete\b',       "DELETE"),
+    (r'\bdelete\b',      "DELETE"),
     (r'\bfrom\b',        "FROM"),
     (r'\bimport\b',      "IMPORT"),
     (r'\bas\b',          "AS"),

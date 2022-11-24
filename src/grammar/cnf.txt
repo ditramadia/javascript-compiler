@@ -1,0 +1,100 @@
+NEWLINE -> newline 
+IF -> if 
+ELSE -> else 
+FOR -> for 
+WHILE -> while 
+SWITCH -> switch 
+CASE -> case 
+BREAK -> break 
+DEFAULT -> default 
+CONTINUE -> continue 
+FUNC -> func 
+RETURN -> return 
+DELETE -> delete 
+FROM -> from 
+IMPORT -> import 
+AS -> as 
+TRY -> try 
+CATCH -> catch 
+THROW -> throw 
+FINALLY -> finally 
+ARROW -> arrow 
+EQUAL -> equal 
+ISEQ -> iseq 
+SISEQ -> siseq 
+NEQ -> neq 
+SNEQ -> sneq 
+L -> l 
+G -> g 
+LE -> le 
+GE -> ge 
+COLON -> colon 
+SEMICOLON -> semicolon 
+INCREMENT -> increment 
+DECREMENT -> decrement 
+SUMEQ -> sumeq 
+SUBTREQ -> subtreq 
+MULEQ -> muleq 
+DIVEQ -> diveq 
+ADD -> add 
+SUBTR -> subtr 
+MUL -> mul 
+DIV -> div 
+MOD -> mod 
+COMMA -> comma 
+DOT -> dot 
+DOTBETWEEN -> dotbetween 
+AND -> and 
+OR -> or 
+NOT -> not 
+TRUE -> true 
+FALSE -> false 
+LB -> lb 
+RB -> rb 
+LSB -> lsb 
+RSB -> rsb 
+LCB -> lcb 
+RCB -> rcb 
+INT -> int 
+STRING -> string 
+NULL -> null 
+UNDEFINED -> undefined 
+TYPE -> type 
+VAR -> var 
+S -> ENTER IMPORT_STMT 
+S -> IMPORT_STMT ENTER 
+S -> IMPORT_STMT S 
+S -> S0 ENTER 
+S0 -> IMPORT_STMT S 
+S -> S1 S 
+S1 -> IMPORT_STMT ENTER 
+ENTER -> NEWLINE ENTER 
+IMPORT_STMT -> IMPORT_STMT2 SEMICOLON 
+IMPORT_STMT2 -> IMPORT STRING 
+IMPORT_STMT -> IMPORT_STMT5 SEMICOLON 
+IMPORT_STMT3 -> IMPORT VAR 
+IMPORT_STMT4 -> IMPORT_STMT3 FROM 
+IMPORT_STMT5 -> IMPORT_STMT4 STRING 
+IMPORT_STMT -> IMPORT_STMT10 SEMICOLON 
+IMPORT_STMT6 -> IMPORT MUL 
+IMPORT_STMT7 -> IMPORT_STMT6 AS 
+IMPORT_STMT8 -> IMPORT_STMT7 VAR 
+IMPORT_STMT9 -> IMPORT_STMT8 FROM 
+IMPORT_STMT10 -> IMPORT_STMT9 STRING 
+IMPORT_STMT -> IMPORT_STMT13 SEMICOLON 
+IMPORT_STMT11 -> IMPORT OBJECT 
+IMPORT_STMT12 -> IMPORT_STMT11 FROM 
+IMPORT_STMT13 -> IMPORT_STMT12 STRING 
+OBJECT -> OBJECT14 RCB 
+OBJECT14 -> LCB VAR 
+OBJECT -> OBJECT15 RCB 
+OBJECT15 -> LCB VAR_GROUP 
+VAR_GROUP -> VAR_GROUP16 VAR 
+VAR_GROUP16 -> VAR COMMA 
+VAR_GROUP -> VAR_GROUP17 VAR_GROUP 
+VAR_GROUP17 -> VAR COMMA 
+ENTER -> newline 
+S -> IMPORT_STMT2 SEMICOLON 
+S -> IMPORT_STMT5 SEMICOLON 
+S -> IMPORT_STMT10 SEMICOLON 
+S -> IMPORT_STMT13 SEMICOLON 
