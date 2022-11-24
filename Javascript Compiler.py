@@ -33,9 +33,13 @@ def displayResult():
 
 # Main Program -------------------------------------
 
-# 1. Argparse
+# 1. Input
 print("Enter the name of your code file: ", end="")
 file_name = input()
+
+while file_name.endswith(".js"):
+    file_name = file_name[:-3]
+
 file_path = f"test/{file_name}.js"
 
 # 2. Display splash screen

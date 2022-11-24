@@ -9,24 +9,30 @@ import re
 # 1. Token Expression 
 tokenExpression = [
     # Not token
-    (r'[ \t]+',   None),
+    (r'[ ]+',   None),
+    (r'[\t]+',   None),
     (r'//[^\n]*', None),
     (r'\n',       "NEWLINE"),
     
     # Keyword
-    (r'\bif\b',                 "IF"),
-    (r'\belse\b',               "ELSE"),
-    (r'\bfor\b',                "FOR"),
-    (r'\bwhile\b',              "WHILE"),
-    (r'\bbreak\b',              "BREAK"),
-    (r'\bcontinue\b',           "CONTINUE"),
-    (r'\bfrom\b',               "FROM"),
-    (r'\bimport\b',             "IMPORT"),
-    (r'\bas\b',                 "AS"),
-    (r'\bfunction\b',           "FUNCTION"),
-    (r'\breturn\b',             "RETURN"),
-    (r'\bclass\b',              "CLASS"),
-    (r'\bconsole.log\b',        "PRINT"),
+    (r'\bif\b',          "IF"),
+    (r'\belse\b',        "ELSE"),
+    (r'\bfor\b',         "FOR"),
+    (r'\bwhile\b',       "WHILE"),
+    (r'\bbreak\b',       "BREAK"),
+    (r'\bcontinue\b',    "CONTINUE"),
+    (r'\bfrom\b',        "FROM"),
+    (r'\bimport\b',      "IMPORT"),
+    (r'\bas\b',          "AS"),
+    (r'\bfunction\b',    "FUNCTION"),
+    (r'\breturn\b',      "RETURN"),
+    (r'\bclass\b',       "CLASS"),
+    (r'\bconsole.log\b', "PRINT"),
+    (r'\btry\b',         "TRY"),
+    (r'\bcatch\b',       "CATCH"),
+    (r'\bthrow\b',       "THROW"),
+    (r'\bdefault\b',     "DEFAULT"),
+    (r'\bfinally\b',     "FINALLY"),
 
     # Operator
     (r'\=(?!\=)',  "EQUAL"),
@@ -111,23 +117,23 @@ def tokenizer(text, tokenExs):
             curLine += 1
             linePos = 1
         
-        isNErr = None
+        isMatch = None
         for tokenEx in tokenExs:
             pattern, label = tokenEx
 
             regEx = re.compile(pattern)
-            isNErr = regEx.match(text, globalPos)
+            isMatch = regEx.match(text, globalPos)
 
-            if isNErr:
+            if isMatch:
                 if label:
                     tokens.append(label)
                 break
         
-        if not isNErr:
+        if not isMatch:
             displayIllegal(text[globalPos], curLine, linePos)
             sys.exit(1)
         else: 
-            globalPos = isNErr.end(0)
+            globalPos = isMatch.end(0)
 
         linePos += 1
     
