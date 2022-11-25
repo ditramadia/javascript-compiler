@@ -50,7 +50,7 @@ def displayResult(isAccepted, time):
 print("Enter the name of your code file: ", end="")
 file_name = input()
 
-while file_name.endswith(".js"):
+if file_name.endswith(".js"):
     file_name = file_name[:-3]
 
 file_path = f"test/{file_name}.js"

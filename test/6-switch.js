@@ -1,10 +1,10 @@
 switch (gender) {
   case "men":
-    console.log("cwk");
+    ret = "cowok";
     break;
   case "women":
-    console.log("cwk");
+    ret = "cewek";
     break;
   default:
-    console.log("cwk");
+    ret = "cwk";
 }
