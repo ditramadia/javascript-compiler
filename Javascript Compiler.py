@@ -32,7 +32,7 @@ def displayResult(isAccepted):
         print()
         print("-----=========  ACCEPTED =========-----")
         print()
-        print("Compilation successfull!")
+        print("Your code is ready to go!")
         print()
 
     else:

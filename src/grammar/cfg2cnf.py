@@ -117,15 +117,15 @@ def cfg2cnf(grammarsRaw):
 
 # Main Program -------------------------------------
 
-# cnf_file = open('cnf.txt', 'w')
-# cnfRules = cfg2cnf(readCFG("cfg.txt"))
+cnf_file = open('src/grammar/cnf.txt', 'w')
+cnfRules = cfg2cnf(readCFG("src/grammar/cfg.txt"))
 
-# for grammar in cnfRules:
-#   cnf_file.write(grammar[0])
-#   cnf_file.write(" -> ")
-#   for var in grammar[1:]:
-#     cnf_file.write(var)
-#     cnf_file.write(" ")
-#   cnf_file.write("\n")
+for grammar in cnfRules:
+  cnf_file.write(grammar[0])
+  cnf_file.write(" -> ")
+  for var in grammar[1:]:
+    cnf_file.write(var)
+    cnf_file.write(" ")
+  cnf_file.write("\n")
 
-# cnf_file.close()
+cnf_file.close()
