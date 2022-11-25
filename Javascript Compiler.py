@@ -49,7 +49,7 @@ def displayWarning():
     print()
     print("-----=========  WARNING ERROR =========-----")
     print()
-    print("Your file is empty :/")
+    print("Your file seems to be empty :/")
     print()
 
 # Main Program -------------------------------------
@@ -58,11 +58,10 @@ def displayWarning():
 print("Enter the name of your code file: ", end="")
 file_name = input()
 
-# if file_name.endswith(".js"):
-    # file_name = file_name[:-3]
+if file_name.endswith(".js"):
+    file_name = file_name[:-3]
 
-# file_path = f"test/{file_name}.js"
-file_path = f"test/{file_name}"
+file_path = f"test/{file_name}.js"
 
 # 2. Display splash screen
 displaySplash()
