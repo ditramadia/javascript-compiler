@@ -3,6 +3,7 @@
 import src.tokenizer as tokenizer
 import src.grammar.cfg2cnf as cfg2cnf
 import src.parser as parser
+import sys
 import time
 
 # Function -----------------------------------------
@@ -44,16 +45,24 @@ def displayResult(isAccepted, time):
         print("Maybe you forgot a comma?")
         print()
 
+def displayWarning():
+    print()
+    print("-----=========  WARNING ERROR =========-----")
+    print()
+    print("Your file is empty :/")
+    print()
+
 # Main Program -------------------------------------
 
 # 1. Input
 print("Enter the name of your code file: ", end="")
 file_name = input()
 
-if file_name.endswith(".js"):
-    file_name = file_name[:-3]
+# if file_name.endswith(".js"):
+    # file_name = file_name[:-3]
 
-file_path = f"test/{file_name}.js"
+# file_path = f"test/{file_name}.js"
+file_path = f"test/{file_name}"
 
 # 2. Display splash screen
 displaySplash()
@@ -64,6 +73,10 @@ print("Compiling your code...")
 time_start = time.time()
 tokens = tokenizer.createToken(file_path)
 tokens = [token.lower() for token in tokens]
+
+if len(tokens) == 0:
+    displayWarning()
+    sys.exit(1)
 
 # 4. Validate grammar
 cnf = cfg2cnf.mapCNF(cfg2cnf.cfg2cnf((cfg2cnf.readCFG("src/grammar/cfg.txt"))))

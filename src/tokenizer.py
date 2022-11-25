@@ -13,7 +13,7 @@ tokenExpression = [
     (r'[\t]+',                     None),
     (r'//[^\n]*',                  None),
     (r'(\/)([\*])+(.|\n)+?(\2\1)', None),
-    (r'\n',                        "NEWLINE"),
+    (r'\n',                        None),
     
     # Keyword
     (r'\bif\b',          "IF"),
