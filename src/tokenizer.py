@@ -20,6 +20,7 @@ tokenExpression = [
     (r'\belse\b',        "ELSE"),
     (r'\bfor\b',         "FOR"),
     (r'\bwhile\b',       "WHILE"),
+    (r'\bin\b',          "IN"),
     (r'\bswitch\b',      "SWITCH"),
     (r'\bcase\b',        "CASE"),
     (r'\bbreak\b',       "BREAK"),
