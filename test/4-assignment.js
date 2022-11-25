@@ -4,3 +4,5 @@ const C = 5;
 const _NIM_ = 1 + 3 + 5;
 
 let arr = ["hi", 2];
+
+delete arr;
