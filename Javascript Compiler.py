@@ -3,6 +3,7 @@
 import src.tokenizer as tokenizer
 import src.grammar.cfg2cnf as cfg2cnf
 import src.parser as parser
+import time
 
 # Function -----------------------------------------
 
@@ -26,12 +27,13 @@ def displaySplash():
     print("                                                        ")
 
 # 2. Display Result
-def displayResult(isAccepted):
+def displayResult(isAccepted, time):
     
     if isAccepted:
         print()
         print("-----=========  ACCEPTED =========-----")
         print()
+        print(f"Compiled in {f'{time:.3f}'} seconds.")
         print("Your code is ready to go!")
         print()
 
@@ -59,12 +61,14 @@ print(f"\nReading '{file_path}'")
 print("Compiling your code...")
 
 # 3. Validate character and Create token
+time_start = time.time()
 tokens = tokenizer.createToken(file_path)
 tokens = [token.lower() for token in tokens]
 
 # 4. Validate grammar
 cnf = cfg2cnf.mapCNF(cfg2cnf.cfg2cnf((cfg2cnf.readCFG("src/grammar/cfg.txt"))))
 isAcc = parser.parse(tokens, cnf)
+time_end = time.time()
 
 # 5. Display result
-displayResult(isAcc)
+displayResult(isAcc, time_end-time_start)
