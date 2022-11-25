@@ -65,4 +65,3 @@ Syntax validator for:
 ## Technology Used
 - Python
 - JavaScript
-
