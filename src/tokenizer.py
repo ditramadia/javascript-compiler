@@ -102,8 +102,10 @@ def displayIllegal(char, line, pos):
     print()
     print("-----=========  SYNTAX ERROR =========-----")
     print()
-    print(f"Illegal character '{char}' found at {line}:{pos}.")
-    print()    
+    print(f"   Illegal character '{char}' found at {line}:{pos}.")
+    print()
+    print("-----=========  ############ =========-----")
+    print()
 
 # 2. Tokenizer
 def tokenizer(text, tokenExs):
