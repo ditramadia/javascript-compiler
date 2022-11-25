@@ -24,7 +24,7 @@ tokenExpression = [
     (r'\bbreak\b',       "BREAK"),
     (r'\bdefault\b',     "DEFAULT"),
     (r'\bcontinue\b',    "CONTINUE"),
-    (r'\bfunction\b',    "FUNC"),
+    (r'\bfunction\b',    "FUNCTION"),
     (r'\breturn\b',      "RETURN"),
     (r'\bdelete\b',      "DELETE"),
     (r'\bfrom\b',        "FROM"),
