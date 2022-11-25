@@ -54,7 +54,11 @@ def displayWarning():
 
 # Main Program -------------------------------------
 
-# 1. Input
+# 1. Display splash screen
+displaySplash()
+
+# 2. Input
+print()
 print("Enter the name of your code file: ", end="")
 file_name = input()
 
@@ -63,12 +67,10 @@ if file_name.endswith(".js"):
 
 file_path = f"test/{file_name}.js"
 
-# 2. Display splash screen
-displaySplash()
-print(f"\nReading '{file_path}'")
-print("Compiling your code...")
 
 # 3. Validate character and Create token
+print(f"\nReading '{file_path}'")
+print("Compiling your code...")
 time_start = time.time()
 tokens = tokenizer.createToken(file_path)
 tokens = [token.lower() for token in tokens]
