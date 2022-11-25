@@ -9,10 +9,11 @@ import re
 # 1. Token Expression 
 tokenExpression = [
     # Not token
-    (r'[ ]+',   None),
-    (r'[\t]+',   None),
-    (r'//[^\n]*', None),
-    (r'\n',       "NEWLINE"),
+    (r'[ ]+',                      None),
+    (r'[\t]+',                     None),
+    (r'//[^\n]*',                  None),
+    (r'(\/)([\*])+(.|\n)+?(\2\1)', None),
+    (r'\n',                        "NEWLINE"),
     
     # Keyword
     (r'\bif\b',          "IF"),
